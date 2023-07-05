@@ -1,11 +1,8 @@
-@extends('layouts.app')
-    
-@section('title','Bienvenido')
-
-@section('meta-description', 'Bienvenida description')
-
-@section('content')
+<x-layouts.app 
+    title="Bienvenido" 
+    meta-description="Bienvenida meta description"
+>
 
     <h1>Bien venido</h1>
 
-@endsection
+</x-layouts.app>
