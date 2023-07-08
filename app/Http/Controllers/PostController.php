@@ -17,4 +17,10 @@ class PostController extends Controller
 
     }
 
+    public function show ($post)
+    {
+        Post::find($post);
+
+    }
+
 }
