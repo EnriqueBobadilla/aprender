@@ -27,20 +27,18 @@ class PostController extends Controller
     }
 
     public function create (Post $post)
-        {
+    {
 
-            return view('posts.create',['post'=> $post]);
+        return view('posts.create',['post'=> $post]);
 
-        }
+    }
 
     public function store (SavePostRequest $request)
     {
        
         Post::create($request->validated());
 
-        session()->flash('status', 'Post Creado!');
-
-        return to_route('posts.index');
+        return to_route('posts.index')->with('status', 'Post Creado');
     }
 
     public function edit(Post $post)
@@ -53,8 +51,14 @@ class PostController extends Controller
         
         $post->update($request->validated());
 
-        session()->flash('status', 'Post Creado!');
-
-        return to_route('posts.show', $post);
+        return to_route('posts.show', $post)->with('status', 'Post actualizado');
     }
+
+    public function destroy(Post $post){
+        
+        $post ->delete();
+
+        return to_route('posts.index', $post)->with('status', 'Post eliminado');
+    }
+
 }
