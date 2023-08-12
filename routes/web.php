@@ -1,5 +1,8 @@
 <?php
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\PostController;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,3 +25,10 @@ Route::resource('blog',PostController::class,[
 ]);
 
 Route::view('/about', 'about')->name('about');
+
+
+Route::view('/login', 'auth.login')->name('login');
+Route::post('/login',[AuthenticatedSessionController::class, 'store']);
+
+Route::view('/register', 'auth.register')->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store']);
