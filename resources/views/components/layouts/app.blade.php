@@ -14,7 +14,6 @@
         {{ session('status') }}
     </div>
     @endif
-
     {{ $slot }}
 </body>
 </html>

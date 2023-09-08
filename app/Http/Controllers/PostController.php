@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePostRequest;
 use App\Models\Post;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -26,7 +23,7 @@ class PostController extends Controller
 
     public function show (Post $post)
     {
-
+        
         return view('posts.show',['post'=> $post]);
 
     }
